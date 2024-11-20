@@ -1,0 +1,54 @@
+.daily_weather {
+  width: 100%;
+  display: flex;
+  overflow-x: scroll;
+  margin-top: 2em;
+  color: white;
+  margin-bottom: 4em;
+
+
+
+  //   /* Height */
+  //   &::-webkit-scrollbar {
+  //     height: 0.5em;
+  //   }
+
+  //   /* Handle */
+  //   &::-webkit-scrollbar-thumb {
+  //     background: rgb(141, 70, 70);
+  //     border-radius: 10px;
+  //   }
+
+  .daily {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    min-width: 30%;
+    border: 1px solid white;
+    border-radius: 30px;
+    margin-left: 2.5%;
+    margin-bottom: 0.5em;
+    padding: 1em;
+    background-color: hsl(247, 68%, 19%);
+
+    &:last-child {
+      margin-right: 2.5%;
+    } 
+  }
+
+  .daily-dt {
+    border-bottom: 1px solid white;
+    margin-bottom: 0.5em;
+  }
+
+  .daily-icon img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .daily-desc {
+    font-size: 0.8rem;
+  }
+}

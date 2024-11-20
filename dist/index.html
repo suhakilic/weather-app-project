@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.min.css">
+</head>
+
+<body>
+    <main class="fade-in">
+        <div id="textMsg" class="textMsg">Starting Screen: some info about the app will be added here.</div>
+        <section id="current_weather" class="current_weather"></section>
+        <section id="daily_weather" class="daily_weather"></section>
+        <section id="fav_section" class="fav_section"></section>
+        <section id="additional_buttons" class="additional_buttons hide">
+            <button class="saveAsHomeDiv" id="saveAsHomeDiv"><i class="fa-solid fa-house"></i> Save as home</button>
+            <button class="saveAsFavDiv" id="saveAsFavDiv"><i class="fa-solid fa-star"></i> Add to favourites</button>
+        </section>
+        <nav id="nav_bar" class="nav_bar">
+            <button class="btn" id="homePos_btn"><i class="fa-solid fa-house"></i></button>
+            <button class="btn" id="currentPos_button"><i class="fa-solid fa-location-crosshairs"></i></button>
+            <button class="btn" id="savePos_button" disabled><i class="fa-solid fa-plus"></i></button>
+            <button class="btn" id="favPos_button"><i class="fa-solid fa-star"></i></button>
+            <button class="btn" id="search_button"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </nav>
+    </main>
+    <script src="./js/main.js" type="module"></script>
+    <!--JavaScript modules allow you to break up your code into separate files. This makes it easier to maintain a code-base. Modules are imported from external files with the import statement. Modules also rely on type="module" in the <script> tag.-->
+</body>
+
+</html>

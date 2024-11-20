@@ -1,0 +1,109 @@
+.fav_section {
+  background-color: #1b0f38;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 4em;
+
+  .fav-div {
+    width: 100%;
+    background-color: #171051;
+    color: white;
+    display: grid;
+    grid-template-columns: (1fr, 1fr);
+    grid-template-rows: (1fr, 1fr, 1fr, 1fr, 1fr);
+    padding: 0.5em;
+    border-bottom: 1px solid $button-color;
+
+    .fav-place {
+      @include flexCenter;
+      width: 100%;
+      grid-row: 1 / span 1;
+      grid-column: 1 / span 2;
+      align-items: baseline;
+
+      .fav-city {
+        font-size: 1.5rem;
+        margin-right: 0.25em;
+      }
+
+      .fav-country {
+        font-size: 0.8rem;
+      }
+    }
+
+    .fav-time-area {
+      @include flexCenter;
+      width: 100%;
+      grid-row: 2 / span 1;
+      grid-column: 1 / span 2;
+      align-items: baseline;
+      margin-top: 0.4em;
+
+      .fav-time {
+        font-size: 1rem;
+        margin-right: 0.25em;
+      }
+
+      .fav-day {
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  .fav-temp {
+    @include flexCenter;
+    grid-row: 3 / span 1;
+    grid-column: 1 / span 1;
+    font-size: 2rem;
+  }
+
+  .fav-feels-like {
+    @include flexCenter;
+    font-size: 1rem;
+    grid-row: 4 / span 1;
+    grid-column: 1 / span 1;
+    font-size: 0.8rem;
+  }
+
+  .fav-icon {
+    @include flexCenter;
+    grid-row: 3 / span 1;
+    grid-column: 2 / span 1;
+
+    img {
+      width: 60px;
+      height: 60px;
+    }
+  }
+  .fav-description {
+    @include flexCenter;
+    grid-row: 4 / span 1;
+    grid-column: 2 / span 1;
+    font-size: 0.8rem;
+  }
+
+  .detail-button {
+    width: 50%;
+    margin: auto;
+    margin-top: 0.5em;
+    grid-row: 5 / span 1;
+    grid-column: 1 / span 1;
+  }
+
+  .delete-button {
+    width: 50%;
+    margin: auto;
+    margin-top: 0.5em;
+    grid-row: 5 / span 1;
+    grid-column: 2 / span 1;
+  }
+
+  button {
+    height: 2em;
+    background-color: $button-color;
+    font-size: 1rem;
+    border-radius: 15px;
+    border: none;
+  }
+}

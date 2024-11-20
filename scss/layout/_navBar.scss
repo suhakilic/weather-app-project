@@ -1,0 +1,24 @@
+.nav_bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 4em;
+  width: 100%;
+  background-color: $daytime-default-color;
+  display: flex;
+  justify-content: space-around;
+
+  button {
+    width: 20%;
+    height: 100%;
+    color: #ffd43b;
+    background-color: $daytime-default-color;
+    text-decoration: none;
+    font-size: 2rem;
+    padding: 10px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

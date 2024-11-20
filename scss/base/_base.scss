@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: $daytime-default-color;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.textMsg {
+  margin: 2em 1em 1em 1em;
+  color: white;
+  text-align: left;
+  align-self: flex-start;
+}
+
+.hide {
+  display: none;
+}
+
+.additional_buttons {
+  width: 100%;
+  position: fixed;
+  bottom: 4em;
+}
+
+.saveAsHomeDiv,
+.saveAsFavDiv,
+.clearFav,
+.clearHome {
+  width: 100%;
+  height: 4em;
+  background-color: #ffd43b;
+  color: $daytime-default-color;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+  padding-left: 1em;
+  border: none;
+  border-top: 1px solid;
+}
