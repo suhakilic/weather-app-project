@@ -8,11 +8,11 @@ exports.handler = async (event, context) => {
   const url = `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&appid=${WEATHER_API_KEY}`;
 
   try {
-    const weatherStream = await fetch(url);
-    const weatherJson = await weatherStream.json();
+    const placeStream = await fetch(url);
+    const placeJson = await placeStream.json();
     return {
       statusCode: 200,
-      body: JSON.stringify(weatherJson),
+      body: JSON.stringify(placeJson),
     };
   } catch (err) {
     return { statusCode: 422, body: err.stack };
