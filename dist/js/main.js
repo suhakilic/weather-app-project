@@ -235,3 +235,4 @@ function checkSavePosButton() {
     savePosButton.disabled = true;
   }
 }
+

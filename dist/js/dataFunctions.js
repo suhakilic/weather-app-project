@@ -9,8 +9,8 @@ export const getCurrentWeatherData = async (latitude, longitude) => {
     return null;
   } */
   const urlDataObj = {
-    lat: latitude,
-    lon: longitude,
+    latitude: latitude,
+    longitude: longitude,
   };
   try {
     const weatherStream = await fetch("./.netlify/functions/get_weather", {
@@ -40,11 +40,11 @@ export const getCurrentPlaceName = async (latitude, longitude) => {
     return null;
   } */
   const urlDataObj = {
-    lat: latitude,
-    lon: longitude,
+    latitude: latitude,
+    longitude: longitude,
   };
   try {
-    const placeStream = await fetch("./.netlify/functions/get_current_place", {
+    const placeStream = await fetch("./.netlify/functions/get_currentplace", {
       method: "POST",
       body: JSON.stringify(urlDataObj),
     });
@@ -76,16 +76,22 @@ export const getCoordsFromCityName = async (city) => {
     console.error("Failed to fetch weather data:", err);
     return null;
   } */
+
+  const urlDataObj = {
+    city: city
+  };
+
   try {
     const coordsStream = await fetch("./.netlify/functions/get_coords", {
       method: "POST",
-      body: JSON.stringify(city),
+      body: JSON.stringify(urlDataObj),
     });
+    const dataJson = await coordsStream.json();
     const dataObj = {
-      lat: coordsStream[0].lat,
-      lon: coordsStream[0].lon,
-      city: coordsStream[0].name,
-      country: coordsStream[0].country,
+      lat: dataJson[0].lat,
+      lon: dataJson[0].lon,
+      city: dataJson[0].name,
+      country: dataJson[0].country,
     };
     return dataObj;
   } catch (err) {
