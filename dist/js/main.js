@@ -25,7 +25,6 @@ homePosButton.addEventListener("click", async function () {
   const country = localStorage.getItem("homeCountry");
   if (city && country) {
     await handleDataWithCityName(city);
-    checkSavePosButton();
   } else {
     myCurrentLocObj = {};
     checkSavePosButton();
@@ -50,7 +49,6 @@ currentPosButton.addEventListener("click", async function () {
     const city = myCurrentLocObj.city;
     if (city != null) {
       handleDataWithCityName(city);
-      checkSavePosButton();
     }
   } catch (error) {
     console.error("Failed to retrieve current location:", error.message);
@@ -94,12 +92,12 @@ saveAsFav.addEventListener("click", function () {
 
   if (!placeExist) {
     favPlaces.push(favPlaceObj);
+    const stringifiedFavPlaces = JSON.stringify(favPlaces);
+    localStorage.setItem("favPlaces", stringifiedFavPlaces);
   } else {
     alert("You have already added this city to favourites.");
   }
   additionalButtons.classList.toggle("hide");
-  const stringifiedFavPlaces = JSON.stringify(favPlaces);
-  localStorage.setItem("favPlaces", stringifiedFavPlaces);
 });
 //#endregion
 
@@ -126,10 +124,20 @@ favPosButton.addEventListener("click", async function () {
       favWeatherData.country = position.country;
       infoArray.push(favWeatherData);
     }
-
-    const abc = displayCurrentFavData(infoArray);
-    console.log(abc);
-    // handleDataWithCityName(abc)
+    console.log(favPlaces);
+    displayCurrentFavData(infoArray)
+      .then((response) => handleDataWithCityName(response))
+      .catch((response) => {
+        console.log(response);
+        favPlaces.forEach((el) => {
+          if (el.city === response) {
+            favPlaces.splice(favPlaces.indexOf(el), 1);
+          }
+        });
+        const stringifiedFavPlaces = JSON.stringify(favPlaces);
+        localStorage.setItem("favPlaces", stringifiedFavPlaces);
+        favPosButton.click()
+      });
   }
 });
 //#endregion
@@ -225,6 +233,7 @@ async function handleDataWithCityName(city) {
   cleanScreen();
   displayCurrentWeatherData(weatherData, locationData);
   console.log("myCurrentLocObj", myCurrentLocObj);
+  checkSavePosButton();
 }
 
 // checkSavePosButton
@@ -235,4 +244,3 @@ function checkSavePosButton() {
     savePosButton.disabled = true;
   }
 }
-

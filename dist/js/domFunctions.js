@@ -191,71 +191,78 @@ const getDateFromUnix = (unixTime, timezone) => {
 
 // display favourite cities
 export const displayCurrentFavData = (infoArray) => {
-  const favDiv = document.getElementById("fav_section");
-  let returnedCity;
+  console.log(infoArray)
+  return new Promise((resolve, reject) => {
+    const favDiv = document.getElementById("fav_section");
+    let returnedCity;
 
-  for (const info of infoArray) {
-    const city = info.city;
-    const country = info.country;
-    const time = getTimeFromUnix(info.current.dt, info.timezone);
-    const day = getDateFromUnix(info.current.dt, info.timezone);
-    const temp = Math.round(Number(info.current.temp));
-    const feelsLike = Math.round(Number(info.current.feels_like));
-    const icon = info.current.weather[0].icon;
-    const description = info.current.weather[0].description;
-    console.log(city, country, time, day, temp, feelsLike, icon, description);
-    const cityDiv = createElement("div", "fav-city", city);
-    const countryDiv = createElement("div", "fav-country", country);
-    const timeDiv = createElement("div", "fav-time", time);
-    const dayDiv = createElement("div", "fav-day", day);
-    const tempDiv = createElement("div", "fav-temp", `${temp}°`);
-    const feelsLikeDiv = createElement(
-      "div",
-      "fav-feels-like",
-      `Feels like ${feelsLike}°`
-    );
+    for (const info of infoArray) {
+      const city = info.city;
+      const country = info.country;
+      const time = getTimeFromUnix(info.current.dt, info.timezone);
+      const day = getDateFromUnix(info.current.dt, info.timezone);
+      const temp = Math.round(Number(info.current.temp));
+      const feelsLike = Math.round(Number(info.current.feels_like));
+      const icon = info.current.weather[0].icon;
+      const description = info.current.weather[0].description;
+      console.log(city, country, time, day, temp, feelsLike, icon, description);
+      const cityDiv = createElement("div", "fav-city", city);
+      const countryDiv = createElement("div", "fav-country", country);
+      const timeDiv = createElement("div", "fav-time", time);
+      const dayDiv = createElement("div", "fav-day", day);
+      const tempDiv = createElement("div", "fav-temp", `${temp}°`);
+      const feelsLikeDiv = createElement(
+        "div",
+        "fav-feels-like",
+        `feels like ${feelsLike}°`
+      );
 
-    const iconDiv = createElement("div", "fav-icon");
-    const iconDivImg = document.createElement("img");
-    iconDivImg.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
-    iconDiv.appendChild(iconDivImg);
+      const iconDiv = createElement("div", "fav-icon");
+      const iconDivImg = document.createElement("img");
+      iconDivImg.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+      iconDiv.appendChild(iconDivImg);
 
-    const descriptionDiv = createElement("div", "fav-description", description);
+      const descriptionDiv = createElement(
+        "div",
+        "fav-description",
+        description
+      );
 
-    const favPlace = createElement("div", "fav-place");
-    favPlace.append(cityDiv, countryDiv);
+      const favPlace = createElement("div", "fav-place");
+      favPlace.append(cityDiv, countryDiv);
 
-    const favTimeArea = createElement("div", "fav-time-area");
-    favTimeArea.append(timeDiv, dayDiv);
+      const favTimeArea = createElement("div", "fav-time-area");
+      favTimeArea.append(timeDiv, dayDiv);
 
-    const detailButton = createElement("button", "detail-button", "Detail");
-    const deleteButton = createElement("button", "delete-button", "Delete");
+      const detailButton = createElement("button", "detail-button", "Detail");
+      const deleteButton = createElement("button", "delete-button", "Delete");
 
-    detailButton.id = city;
-    deleteButton.id = city;
+      detailButton.id = city;
+      deleteButton.id = city;
 
-    const favDivSub = createElement("div", "fav-div");
-    favDivSub.append(
-      favPlace,
-      favTimeArea,
-      tempDiv,
-      feelsLikeDiv,
-      iconDiv,
-      descriptionDiv,
-      detailButton,
-      deleteButton
-    );
-    favDiv.appendChild(favDivSub);
+      const favDivSub = createElement("div", "fav-div");
+      favDivSub.append(
+        favPlace,
+        favTimeArea,
+        tempDiv,
+        feelsLikeDiv,
+        iconDiv,
+        descriptionDiv,
+        detailButton,
+        deleteButton
+      );
+      favDiv.appendChild(favDivSub);
 
-    detailButton.addEventListener("click", function () {
-      returnedCity = detailButton.id
-    });
-    deleteButton.addEventListener("click", function () {
-      console.log(deleteButton.id);
-    });
-  }
-  console.log(returnedCity)
-  return "Utrecht"
+      detailButton.addEventListener("click", function () {
+        returnedCity = detailButton.id;
+        resolve(returnedCity);
+      });
+      deleteButton.addEventListener("click", function () {
+        returnedCity = deleteButton.id;
+        reject(returnedCity)
+      });
+    }
+  });
 };
 
 // handle data with city name
