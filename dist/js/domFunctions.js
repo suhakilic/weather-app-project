@@ -265,14 +265,3 @@ export const displayCurrentFavData = (infoArray) => {
   });
 };
 
-// handle data with city name
-export async function handleDataWithCityName(city) {
-  const locationData = await getCoordsFromCityName(city);
-  // getCoordsFromCityName returns >>> lat,lon,city,country
-  const weatherData = await getCurrentWeatherData(
-    locationData.lat,
-    locationData.lon
-  );
-  cleanScreen();
-  displayCurrentWeatherData(weatherData, locationData);
-}

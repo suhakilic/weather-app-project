@@ -136,7 +136,7 @@ favPosButton.addEventListener("click", async function () {
         });
         const stringifiedFavPlaces = JSON.stringify(favPlaces);
         localStorage.setItem("favPlaces", stringifiedFavPlaces);
-        favPosButton.click()
+        favPosButton.click();
       });
   }
 });
@@ -244,3 +244,5 @@ function checkSavePosButton() {
     savePosButton.disabled = true;
   }
 }
+
+

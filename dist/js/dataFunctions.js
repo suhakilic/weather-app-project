@@ -1,3 +1,11 @@
+let selectedUnit = "metric";
+const tempUnit = document.getElementById("tempUnit");
+tempUnit.addEventListener("change", (event) => {
+  selectedUnit = event.target.value;
+  tempUnit.blur();
+  console.log(selectedUnit);
+});
+
 export const getCurrentWeatherData = async (latitude, longitude) => {
   /*   const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&units=metric&exclude={part}&appid=${WEATHER_API_KEY}`;
     try {
@@ -11,6 +19,7 @@ export const getCurrentWeatherData = async (latitude, longitude) => {
   const urlDataObj = {
     latitude: latitude,
     longitude: longitude,
+    unit: selectedUnit,
   };
   try {
     const weatherStream = await fetch("./.netlify/functions/get_weather", {
@@ -78,7 +87,7 @@ export const getCoordsFromCityName = async (city) => {
   } */
 
   const urlDataObj = {
-    city: city
+    city: city,
   };
 
   try {

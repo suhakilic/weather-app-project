@@ -11,7 +11,19 @@
 
 <body>
     <main class="fade-in">
-        <div id="textMsg" class="textMsg">Starting Screen: some info about the app will be added here.</div>
+        <div id="textMsg" class="textMsg">
+            <label for="tempUnit">Choose the temperature unit:</label>
+            <select id="tempUnit" class="tempUnit">
+                <option value="metric">Celsius</option>
+                <option value="imperial">Fahrenheit</option>
+            </select>
+            <ul>
+                <li>This is the starting screen of the weather app.</li>
+                <li>Use the navigation buttons below to explore the app.</li>
+                <li>The "+" button is enabled only when a city's weather data is displayed on the screen.</li>
+                <li>For optimal performance, limit the number of favorite cities saved.</li>
+            </ul>
+        </div>
         <section id="current_weather" class="current_weather"></section>
         <section id="daily_weather" class="daily_weather"></section>
         <section id="fav_section" class="fav_section"></section>

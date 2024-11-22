@@ -7,6 +7,7 @@
   background-color: $daytime-default-color;
   display: flex;
   justify-content: space-around;
+  border: none;
 
   button {
     width: 20%;
@@ -16,9 +17,25 @@
     text-decoration: none;
     font-size: 2rem;
     padding: 10px;
+    border: none;
+    border-right: 1px solid $button-color;
+    border-top: 1px solid $button-color;
+
+
+    &:first-child {
+      border-left: 1px solid $button-color;
+    }
 
     &:hover {
       cursor: pointer;
     }
+  }
+}
+
+@media (min-width: 768px) {
+  .nav_bar {
+    max-width: 768px;
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Offset by 50% of its own width */
   }
 }

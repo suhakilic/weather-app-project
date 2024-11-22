@@ -26,11 +26,23 @@ main {
   width: 100%;
 }
 
+@media (min-width: 768px) {
+  main {
+    max-width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 .textMsg {
   margin: 2em 1em 1em 1em;
   color: white;
   text-align: left;
   align-self: flex-start;
+}
+
+.textMsg > ul > li {
+  margin: 1em;
 }
 
 .hide {
@@ -39,6 +51,7 @@ main {
 
 .additional_buttons {
   width: 100%;
+  max-width: 768px;
   position: fixed;
   bottom: 4em;
 }
