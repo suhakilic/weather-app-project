@@ -4,6 +4,20 @@ import {
 } from "./dataFunctions.js";
 import { cleanScreen } from "./main.js";
 
+let tempUnit = "metric";
+let windUnit = "m/s";
+const tempUnitSection = document.getElementById("tempUnit");
+tempUnitSection.addEventListener("change", (event) => {
+  tempUnit = event.target.value;
+
+  if (tempUnit === "metric") {
+    windUnit = "m/s";
+  } else if (tempUnit === "imperial") {
+    windUnit = "mph";
+  }
+});
+
+
 export const displayCurrentWeatherData = (
   myCurrentWeatherJson,
   myCurrentPlaceJson
@@ -103,7 +117,7 @@ export const displayCurrentWeatherData = (
   // #region windDiv
   const windDiv = createElement("div", "wind");
   const windText = createElement("div", "", "Wind");
-  const windDivValue = createElement("div", "", `${wind} m/s`);
+  const windDivValue = createElement("div", "", `${wind} ${windUnit}`);
   windDiv.append(windText, windDivValue);
   // #endregion
 
@@ -191,7 +205,7 @@ const getDateFromUnix = (unixTime, timezone) => {
 
 // display favourite cities
 export const displayCurrentFavData = (infoArray) => {
-  console.log(infoArray)
+  console.log(infoArray);
   return new Promise((resolve, reject) => {
     const favDiv = document.getElementById("fav_section");
     let returnedCity;
@@ -259,9 +273,8 @@ export const displayCurrentFavData = (infoArray) => {
       });
       deleteButton.addEventListener("click", function () {
         returnedCity = deleteButton.id;
-        reject(returnedCity)
+        reject(returnedCity);
       });
     }
   });
 };
-

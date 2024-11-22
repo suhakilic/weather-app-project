@@ -232,6 +232,7 @@ async function handleDataWithCityName(city) {
   myCurrentLocObj = locationData;
   cleanScreen();
   displayCurrentWeatherData(weatherData, locationData);
+  resetScroll()
   console.log("myCurrentLocObj", myCurrentLocObj);
   checkSavePosButton();
 }
@@ -245,4 +246,11 @@ function checkSavePosButton() {
   }
 }
 
-
+const resetScroll = function () {
+  // Select your scrollable container
+  const scrollContainer = document.querySelector(".daily_weather");
+  // Reset the scroll position to the leftmost position
+  if (scrollContainer) {
+    scrollContainer.scrollLeft = 0;
+  }
+};

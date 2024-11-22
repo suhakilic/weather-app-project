@@ -3,19 +3,10 @@
   display: flex;
   overflow-x: scroll;
   margin-top: 2em;
+  padding-bottom: 1em;
   color: white;
   margin-bottom: 4em;
 
-  //   /* Height */
-  //   &::-webkit-scrollbar {
-  //     height: 0.5em;
-  //   }
-
-  //   /* Handle */
-  //   &::-webkit-scrollbar-thumb {
-  //     background: rgb(141, 70, 70);
-  //     border-radius: 10px;
-  //   }
 
   .daily {
     display: flex;
@@ -29,7 +20,7 @@
     margin-left: 2.5%;
     margin-bottom: 0.5em;
     padding: 1em;
-    background-color: hsl(247, 68%, 19%);
+    background-color: #2a184d;
 
     &:last-child {
       margin-right: 2.5%;

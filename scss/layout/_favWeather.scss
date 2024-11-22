@@ -1,20 +1,22 @@
 .fav_section {
-  background-color: #1b0f38;
+  background-color: $daytime-default-color;
   width: 100%;
   display: flex;
   flex-direction: column;
   padding-bottom: 4em;
 
-
   .fav-div {
     width: 100%;
-    background-color: #171051;
+    background-color: $daytime-default-color;
     color: white;
     display: grid;
     grid-template-columns: (1fr, 1fr);
     grid-template-rows: (1fr, 1fr, 1fr, 1fr, 1fr);
     padding: 0.5em;
     border-bottom: 1px solid $button-color;
+    &:last-child {
+      border-bottom: none;
+    }
 
     .fav-place {
       @include flexCenter;
@@ -43,7 +45,7 @@
 
       .fav-time {
         font-size: 1rem;
-        margin-right: 0.25em;
+        margin-right: 0.5em;
       }
 
       .fav-day {
