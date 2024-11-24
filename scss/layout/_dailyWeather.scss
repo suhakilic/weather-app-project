@@ -6,9 +6,6 @@
   padding-bottom: 1em;
   color: white;
   margin-bottom: 4em;
-  scrollbar-width: none;
-
-
 
   .daily {
     display: flex;
@@ -41,5 +38,31 @@
 
   .daily-desc {
     font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .daily_weather {
+    &::-webkit-scrollbar {
+      height: 12px;
+    }
+    &::-webkit-scrollbar-track {
+      background: $daytime-default-color;
+      border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: darken($button-color, 50%);
+      border-radius: 10px;
+    }
+    /* Change color on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: $button-color;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .daily_weather {
+    scrollbar-width: none;
   }
 }
