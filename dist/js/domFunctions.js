@@ -205,7 +205,7 @@ const getDateFromUnix = (unixTime, timezone) => {
 
 // display favourite cities
 export const displayCurrentFavData = (infoArray) => {
-  console.log(infoArray);
+  // console.log(infoArray);
   return new Promise((resolve, reject) => {
     const favDiv = document.getElementById("fav_section");
     let returnedCity;
@@ -219,7 +219,7 @@ export const displayCurrentFavData = (infoArray) => {
       const feelsLike = Math.round(Number(info.current.feels_like));
       const icon = info.current.weather[0].icon;
       const description = info.current.weather[0].description;
-      console.log(city, country, time, day, temp, feelsLike, icon, description);
+      // console.log(city, country, time, day, temp, feelsLike, icon, description);
       const cityDiv = createElement("div", "fav-city", city);
       const countryDiv = createElement("div", "fav-country", country);
       const timeDiv = createElement("div", "fav-time", time);

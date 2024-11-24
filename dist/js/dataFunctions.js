@@ -3,7 +3,7 @@ const tempUnit = document.getElementById("tempUnit");
 tempUnit.addEventListener("change", (event) => {
   selectedUnit = event.target.value;
   tempUnit.blur();
-  console.log(selectedUnit);
+  // console.log(selectedUnit);
 });
 
 export const getCurrentWeatherData = async (latitude, longitude) => {

@@ -28,7 +28,7 @@ homePosButton.addEventListener("click", async function () {
   } else {
     myCurrentLocObj = {};
     checkSavePosButton();
-    console.log("myCurrentLocObj", myCurrentLocObj);
+    // console.log("myCurrentLocObj", myCurrentLocObj);
     cleanScreen();
     const errorMsg =
       "Home location is not set yet.\n\nPlease search for a city, then save it as your home.\n\nOr, click the position icon, then save your current location as home.";
@@ -54,7 +54,7 @@ currentPosButton.addEventListener("click", async function () {
     console.error("Failed to retrieve current location:", error.message);
     myCurrentLocObj = {};
     checkSavePosButton();
-    console.log("myCurrentLocObj", myCurrentLocObj);
+    // console.log("myCurrentLocObj", myCurrentLocObj);
   }
 });
 // #endregion
@@ -106,7 +106,7 @@ const favPosButton = document.getElementById("favPos_button");
 favPosButton.addEventListener("click", async function () {
   myCurrentLocObj = {};
   checkSavePosButton();
-  console.log("myCurrentLocObj", myCurrentLocObj);
+  // console.log("myCurrentLocObj", myCurrentLocObj);
   cleanScreen();
   currentWeatherSection.classList = "hide";
   dailytWeatherSection.classList = "hide";
@@ -124,11 +124,11 @@ favPosButton.addEventListener("click", async function () {
       favWeatherData.country = position.country;
       infoArray.push(favWeatherData);
     }
-    console.log(favPlaces);
+    // console.log(favPlaces);
     displayCurrentFavData(infoArray)
       .then((response) => handleDataWithCityName(response))
       .catch((response) => {
-        console.log(response);
+        // console.log(response);
         favPlaces.forEach((el) => {
           if (el.city === response) {
             favPlaces.splice(favPlaces.indexOf(el), 1);
@@ -233,7 +233,7 @@ async function handleDataWithCityName(city) {
   cleanScreen();
   displayCurrentWeatherData(weatherData, locationData);
   resetScroll()
-  console.log("myCurrentLocObj", myCurrentLocObj);
+  // console.log("myCurrentLocObj", myCurrentLocObj);
   checkSavePosButton();
 }
 
