@@ -25,7 +25,7 @@ You can access the live demo of the app here.
 Test the app live <a href="https://suhacankilicweatherapp.netlify.app/" target="_blank">here</a>.
 
 ## App Screenshots
-<img src="https://github.com/user-attachments/assets/e1f7b618-ef8f-4c0b-a32b-e5b2b8b29575" width=100px height=200px>
-<img src="https://github.com/user-attachments/assets/ee34d53a-4557-4016-a6ac-b14e25ca2e5e" width=100px height=200px>
-<img src="https://github.com/user-attachments/assets/feb0c9a2-a751-4b0f-804e-1949ee1958d9" width=100px height=200px>
+<img src="https://github.com/user-attachments/assets/e1f7b618-ef8f-4c0b-a32b-e5b2b8b29575" width=200px height=400px>
+<img src="https://github.com/user-attachments/assets/ee34d53a-4557-4016-a6ac-b14e25ca2e5e" width=200px height=400px>
+<img src="https://github.com/user-attachments/assets/feb0c9a2-a751-4b0f-804e-1949ee1958d9" width=200px height=400px>
 
