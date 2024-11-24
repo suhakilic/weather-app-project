@@ -232,7 +232,7 @@ async function handleDataWithCityName(city) {
   myCurrentLocObj = locationData;
   cleanScreen();
   displayCurrentWeatherData(weatherData, locationData);
-  resetScroll()
+  resetScroll();
   // console.log("myCurrentLocObj", myCurrentLocObj);
   checkSavePosButton();
 }
@@ -254,3 +254,13 @@ const resetScroll = function () {
     scrollContainer.scrollLeft = 0;
   }
 };
+
+const scrollContainer = document.querySelector(".daily_weather");
+scrollContainer.addEventListener("wheel", (event) => {
+  event.preventDefault();
+  if (event.deltaY < 0) {
+    scrollContainer.scrollLeft -= 250;
+  } else if (event.deltaY > 0) {
+    scrollContainer.scrollLeft += 250;
+  }
+});

@@ -6,6 +6,7 @@
   padding-bottom: 1em;
   color: white;
   margin-bottom: 4em;
+  scroll-behavior: smooth;
 
   .daily {
     display: flex;
@@ -57,6 +58,7 @@
     /* Change color on hover */
     &::-webkit-scrollbar-thumb:hover {
       background: $button-color;
+      cursor: pointer;
     }
   }
 }
